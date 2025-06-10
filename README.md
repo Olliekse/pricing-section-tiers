@@ -1,141 +1,80 @@
 # Pricing Section (Tiers)
 
-A modern, responsive pricing section built with React and TypeScript. This component features a clean, professional design with monthly/annual pricing toggle and three distinct pricing tiers.
+Build a responsive three-tier pricing section with toggle for monthly / annual prices
 
-![Pricing Section Preview](preview.png)
+## Project brief
 
-## Features
+In this challenge, I developed a responsive pricing section with three distinct plans: Basic, Standard and Premium, each with its own set of features and call-to-action (CTA) buttons. The section features a toggle which allows users to switch between monthly and annual pricing views.
 
-- 🎨 Modern, clean design with smooth transitions
-- 📱 Fully responsive layout
-- 🔄 Monthly/Annual pricing toggle
-- 💰 Three distinct pricing tiers (Basic, Standard, Premium)
-- ✅ Feature lists with checkmark icons
-- 🎯 Highlighted "Most Popular" plan
-- 🎭 Styled with styled-components
-- 📝 Written in TypeScript for better type safety
+### Implementation requirements
 
-## Technologies Used
+- **Design fidelity**: Followed the design closely with specified text colors, font sizes, font weights, spacing, and dimensions.
+- **Interactivity**:
+  - **Button states**: Implemented and styled buttons to reflect different states - normal, hover, focus, and disabled.
+  - **Toggle**: Implemented a functional toggle that conditionally updates the displayed pricing information to either a monthly or annual pricing view without page reloads. The tier's price and "Billed {period}" line under the price updates depending on the toggle state.
+- **Responsive behavior**:
+  - **Text size**: Implemented responsive text sizing; font size is larger for wider devices, smaller for narrow devices.
+  - **Responsive layout**: Content stacks vertically on smaller screens and aligns horizontally as the screen width increases.
+- **Cross-browser compatibility**: Solution works across major browsers including Chrome, Firefox, and Safari.
+- **Performance optimization**: Implemented efficient CSS and JavaScript techniques for fast load times.
+- **Accessibility compliance**: Followed best practices for web accessibility, using semantic HTML and ARIA roles where necessary, and ensuring keyboard navigation support.
+
+## Resources used
+
+- Design files for desktop, tablet and mobile
+- High resolution image assets
+- Style guide for typography, colors and spacing
+- React + TypeScript + Vite for development
+- styled-components for styling
+
+## Development process
+
+1. **Setup and Planning**
+
+   - Created project using Vite with React and TypeScript
+   - Set up styled-components for styling
+   - Analyzed design requirements and created component structure
+
+2. **Component Development**
+
+   - Created Header component with pricing toggle
+   - Implemented ProductList component with three pricing tiers
+   - Added responsive styling and animations
+
+3. **Features Implementation**
+
+   - Implemented monthly/annual pricing toggle
+   - Added button states and interactions
+   - Created responsive layout system
+   - Implemented accessibility features
+
+4. **Testing and Optimization**
+   - Tested across different browsers
+   - Optimized performance
+   - Ensured responsive behavior
+   - Verified accessibility compliance
+
+## Technologies used
 
 - React
 - TypeScript
 - styled-components
-- Vite (for development and building)
+- Vite
 
-## Getting Started
+## Key learnings
 
-### Prerequisites
+- Implementing complex responsive layouts
+- Managing state for pricing toggles
+- Creating accessible interactive components
+- Optimizing performance in React applications
+- Using TypeScript for better type safety
+- Working with styled-components for maintainable CSS
 
-- Node.js (v14 or higher)
-- npm or yarn
+## Future improvements
 
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/pricing-section-tiers.git
-```
-
-2. Navigate to the project directory:
-
-```bash
-cd pricing-section-tiers
-```
-
-3. Install dependencies:
-
-```bash
-npm install
-# or
-yarn install
-```
-
-4. Start the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-The application will be available at `http://localhost:5173`
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── Header.tsx        # Pricing toggle and title section
-│   └── ProductList.tsx   # Pricing cards and features
-├── App.tsx              # Main application component
-└── main.tsx            # Application entry point
-```
-
-## Usage
-
-The pricing section can be easily integrated into any React application:
-
-```tsx
-import { Header } from "./components/Header";
-import { ProductList } from "./components/ProductList";
-
-function App() {
-  const [planSelection, setPlanSelection] = useState<"monthly" | "annually">(
-    "monthly"
-  );
-
-  return (
-    <div>
-      <Header setPlanSelection={setPlanSelection} />
-      <ProductList planSelection={planSelection} />
-    </div>
-  );
-}
-```
-
-## Customization
-
-### Styling
-
-The component uses styled-components for styling. You can customize the appearance by modifying the styled components in each file:
-
-- Colors
-- Typography
-- Spacing
-- Border radius
-- Shadows
-- Animations
-
-### Pricing
-
-Pricing information is centralized in the `ProductList.tsx` file:
-
-```typescript
-const PRICE_INFO: Record<string, PriceInfo> = {
-  basic: {
-    monthly: 9.99,
-    annually: 6.99,
-    annualTotal: 84,
-  },
-  // ... other plans
-};
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Design inspired by modern SaaS pricing pages
-- Icons from [Heroicons](https://heroicons.com/)
-- Built with [Vite](https://vitejs.dev/)
+- Add animations for price changes
+- Implement dark mode
+- Add more interactive features
+- Enhance accessibility features
+- Add unit tests
+- Implement internationalization
