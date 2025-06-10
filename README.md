@@ -1,54 +1,141 @@
-# React + TypeScript + Vite
+# Pricing Section (Tiers)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive pricing section built with React and TypeScript. This component features a clean, professional design with monthly/annual pricing toggle and three distinct pricing tiers.
 
-Currently, two official plugins are available:
+![Pricing Section Preview](preview.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🎨 Modern, clean design with smooth transitions
+- 📱 Fully responsive layout
+- 🔄 Monthly/Annual pricing toggle
+- 💰 Three distinct pricing tiers (Basic, Standard, Premium)
+- ✅ Feature lists with checkmark icons
+- 🎯 Highlighted "Most Popular" plan
+- 🎭 Styled with styled-components
+- 📝 Written in TypeScript for better type safety
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React
+- TypeScript
+- styled-components
+- Vite (for development and building)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/pricing-section-tiers.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Navigate to the project directory:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd pricing-section-tiers
 ```
+
+3. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.tsx        # Pricing toggle and title section
+│   └── ProductList.tsx   # Pricing cards and features
+├── App.tsx              # Main application component
+└── main.tsx            # Application entry point
+```
+
+## Usage
+
+The pricing section can be easily integrated into any React application:
+
+```tsx
+import { Header } from "./components/Header";
+import { ProductList } from "./components/ProductList";
+
+function App() {
+  const [planSelection, setPlanSelection] = useState<"monthly" | "annually">(
+    "monthly"
+  );
+
+  return (
+    <div>
+      <Header setPlanSelection={setPlanSelection} />
+      <ProductList planSelection={planSelection} />
+    </div>
+  );
+}
+```
+
+## Customization
+
+### Styling
+
+The component uses styled-components for styling. You can customize the appearance by modifying the styled components in each file:
+
+- Colors
+- Typography
+- Spacing
+- Border radius
+- Shadows
+- Animations
+
+### Pricing
+
+Pricing information is centralized in the `ProductList.tsx` file:
+
+```typescript
+const PRICE_INFO: Record<string, PriceInfo> = {
+  basic: {
+    monthly: 9.99,
+    annually: 6.99,
+    annualTotal: 84,
+  },
+  // ... other plans
+};
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Design inspired by modern SaaS pricing pages
+- Icons from [Heroicons](https://heroicons.com/)
+- Built with [Vite](https://vitejs.dev/)
